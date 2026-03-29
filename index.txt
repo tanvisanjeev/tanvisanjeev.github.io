@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanvi Kadam</title>
+</head>
+<body>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1a56db;--blue-light:#e8f0fe;--blue-mid:#3b82f6;
+  --purple:#6d28d9;--purple-light:#ede9fe;
+  --black:#0f172a;--gray-dark:#334155;--gray-mid:#64748b;--gray-light:#f1f5f9;
+  --white:#ffffff;--border:#e2e8f0
+}
+body{font-family:system-ui,sans-serif;color:var(--black);background:var(--white);font-size:15px;line-height:1.7}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;justify-content:space-between;align-items:center;height:56px}
+.nav-name{font-weight:600;font-size:15px;color:var(--black)}
+.nav-links{display:flex;gap:1.75rem}
+.nav-links a{font-size:13px;color:var(--gray-mid);font-weight:500;transition:color 0.15s}
+.nav-links a:hover{color:var(--blue)}
+.wrap{max-width:820px;margin:0 auto;padding:0 2rem}
+.hero{padding:5.5rem 0 4rem}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-light);padding:4px 12px;border-radius:20px;margin-bottom:1.25rem}
+.hero h1{font-size:40px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:1rem}
+.hero h1 span{color:var(--blue)}
+.hero-sub{font-size:16px;color:var(--gray-mid);max-width:520px;margin-bottom:2rem;line-height:1.7}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1.5px solid transparent}
+.btn-primary{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.btn-primary:hover{background:#1648c0}
+.btn-outline{background:var(--white);color:var(--black);border-color:var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+section{padding:3.5rem 0;border-top:1px solid var(--border)}
+.section-header{margin-bottom:2.25rem}
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.section-title{font-size:22px;font-weight:700;color:var(--black);letter-spacing:-0.01em}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-date{font-size:12px;color:var(--gray-mid);font-weight:500;padding-top:3px;line-height:1.5}
+.exp-role{font-size:15px;font-weight:700;color:var(--black);margin-bottom:2px}
+.exp-org{font-size:13px;color:var(--blue);font-weight:500;margin-bottom:6px}
+.exp-desc{font-size:13px;color:var(--gray-mid);line-height:1.65}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:10px;transition:box-shadow 0.2s,border-color 0.2s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.card.health::before{background:linear-gradient(90deg,var(--blue),var(--blue-mid))}
+.card.ai::before{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.card.data::before{background:linear-gradient(90deg,#0891b2,#06b6d4)}
+.card.product::before{background:linear-gradient(90deg,#059669,#34d399)}
+.card.multiagent::before{background:linear-gradient(90deg,var(--blue),var(--purple))}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);border-color:#cbd5e1}
+.card-tag{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;width:fit-content}
+.tag-health{background:var(--blue-light);color:var(--blue)}
+.tag-ai{background:var(--purple-light);color:var(--purple)}
+.tag-data{background:#e0f2fe;color:#0369a1}
+.tag-product{background:#d1fae5;color:#065f46}
+.tag-multiagent{background:#ede9fe;color:#5b21b6}
+.tag-launched{background:#fef9c3;color:#854d0e}
+.card h3{font-size:15px;font-weight:700;color:var(--black);line-height:1.35}
+.card-sub{font-size:12px;font-weight:600;color:var(--blue);margin-bottom:2px;margin-top:-4px}
+.card p{font-size:13px;color:var(--gray-mid);line-height:1.65;flex:1}
+.card-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.card-link{font-size:12px;font-weight:500;color:var(--blue);border:1px solid var(--blue-light);background:var(--blue-light);border-radius:6px;padding:4px 12px;transition:background 0.15s}
+.card-link:hover{background:#d1e3fc}
+.card-link.plain{color:var(--gray-mid);background:var(--gray-light);border-color:var(--border)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
+.skill-group{background:var(--gray-light);border-radius:10px;padding:1rem 1.25rem}
+.skill-group h4{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{font-size:12px;font-weight:500;padding:3px 10px;border-radius:6px;background:var(--white);color:var(--gray-dark);border:1px solid var(--border)}
+.edu-grid{display:flex;flex-direction:column}
+.edu-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.25rem 0;border-bottom:1px solid var(--border)}
+.edu-item:last-child{border-bottom:none}
+.hackathon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2rem}
+.hack-card{background:var(--gray-light);border-radius:12px;padding:1.25rem;border:1px solid var(--border)}
+.hack-card h4{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px}
+.hack-card .hack-event{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:8px}
+.hack-card p{font-size:13px;color:var(--gray-mid);line-height:1.6}
+.recognition-card{background:var(--blue-light);border-radius:12px;padding:1.25rem 1.5rem;border:1px solid #c7d9f8;display:flex;align-items:flex-start;gap:1rem}
+.recog-icon{width:36px;height:36px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.recog-icon svg{width:18px;height:18px;fill:var(--white)}
+.recog-text h4{font-size:14px;font-weight:700;color:var(--black);margin-bottom:2px}
+.recog-text p{font-size:13px;color:var(--gray-mid);line-height:1.55}
+.recog-text a{color:var(--blue);font-weight:500}
+.ta-grid{display:flex;flex-direction:column}
+.ta-item{padding:1.25rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:160px 1fr;gap:2rem}
+.ta-item:last-child{border-bottom:none}
+.contact-box{border-radius:16px;padding:2.5rem;color:var(--white);text-align:center;background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.contact-box h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.contact-box p{font-size:14px;opacity:0.85;margin-bottom:1.75rem;max-width:440px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.contact-btn{background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);color:var(--white);padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;transition:background 0.15s}
+.contact-btn:hover{background:rgba(255,255,255,0.25)}
+@media(max-width:640px){
+  .hero{padding:3rem 0 2.5rem}
+  .hero h1{font-size:28px}
+  .exp-item,.edu-item,.ta-item{grid-template-columns:1fr}
+  nav{padding:0 1rem}
+  .wrap{padding:0 1.25rem}
+}
+</style>
+
+<nav>
+  <span class="nav-name">Tanvi Kadam</span>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Authorized to Work for Any Employer in the USA · Seeking Full-Time Roles</div>
+    <h1>Tanvi <span>Sanjeev</span> Kadam</h1>
+    <p class="hero-sub">Data Analyst · Data Scientist · AI and ML Engineer · LLM and RAG Systems · Research Analytics. MS in Analytics (Applied Machine Intelligence), Northeastern University. I build end-to-end data pipelines, machine learning models, AI-powered platforms, and multi-agent systems across research, product, and industry contexts.</p>
+    <div class="hero-btns">
+      <a href="https://www.linkedin.com/in/tanvisanjeev" class="btn btn-primary">LinkedIn</a>
+      <a href="mailto:kadam.ta@northeastern.edu" class="btn btn-outline">Email</a>
+    </div>
+  </div>
+
+  <section id="experience">
+    <div class="section-header">
+      <div class="section-label">Career</div>
+      <div class="section-title">Experience</div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date">Mar 2026 – Present</div>
+        <div>
+          <div class="exp-role">AI Engineer</div>
+          <div class="exp-org">CPS Learn Lab, Northeastern University</div>
+          <div class="exp-desc">Building Learning Signals, an LLM-powered platform that automates transcript scoring and evaluation at scale, with a modular NLP pipeline, AI querying layer, and research export workflows.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Oct 2025 – Present</div>
+        <div>
+          <div class="exp-role">Data Analyst and Research Assistant</div>
+          <div class="exp-org">Northeastern University Housing Lab (Healthy Neighborhoods Study)</div>
+          <div class="exp-desc">Built the Affordable Boston platform for a community health and housing policy research organization. Integrated 8 heterogeneous data sources into a production R Shiny application with geospatial analytics, multilingual support, and smart search. Actively used by municipal teams and researchers to support evidence-based policy decisions.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Sep 2025 – Dec 2025</div>
+        <div>
+          <div class="exp-role">AI Engineer, Capstone</div>
+          <div class="exp-org">Project NANDA, Northeastern University</div>
+          <div class="exp-desc">Developed a multi-agent AI system for crisis response with 10 specialized agents handling situational assessment, resource allocation, and emergency decision support using Python and LLM architectures.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Sep 2024 – Dec 2024</div>
+        <div>
+          <div class="exp-role">Data Analyst</div>
+          <div class="exp-org">Traxidy, Canada (Remote)</div>
+          <div class="exp-desc">Designed and developed an interactive project management dashboard for a Canadian startup using Python, Dash, Plotly, and Streamlit, combining data visualization and sentiment analysis into a sponsor-ready analytics solution.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Jan 2025 – Jul 2025</div>
+        <div>
+          <div class="exp-role">Data Analyst (Co-op)</div>
+          <div class="exp-org">ImEx Cargo LLC, Peabody MA</div>
+          <div class="exp-desc">Analyzed supply chain and logistics data to optimize freight operations across US and Italy routes. Built automated Power BI dashboards tracking shipment status, delivery times, and route efficiency. Used Python and SQL to identify cost-saving opportunities and operational bottlenecks, collaborating with domestic and airfreight managers to implement data-driven inventory strategies.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">May 2022 – Sep 2023</div>
+        <div>
+          <div class="exp-role">Data Quality Analyst</div>
+          <div class="exp-org">Petition.ai LLC, Chicago IL</div>
+          <div class="exp-desc">Performed database testing and validation in a regulated environment using Python querying and SQL across 50K+ operational records. Conducted systematic audits, root-cause analysis, and anomaly detection, resolving 200+ data inconsistencies and building governance frameworks to ensure audit readiness.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Jan 2022 – May 2022</div>
+        <div>
+          <div class="exp-role">Quality Assurance Engineer</div>
+          <div class="exp-org">Tech Mahindra, Mumbai</div>
+          <div class="exp-desc">Worked across the full SDLC lifecycle performing manual and automation testing on enterprise backend systems. Wrote SQL queries to validate 10,000+ database records, performed regression and integration testing, and tracked 150+ defects through to resolution across cross-functional teams.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header">
+      <div class="section-label">Work</div>
+      <div class="section-title">Projects</div>
+    </div>
+    <div class="project-grid">
+
+      <div class="card health">
+        <span class="card-tag tag-health">Health and ML</span>
+        <h3>Parkinson's Speech Biomarker Classification</h3>
+        <p>Built a classification pipeline on the UCI Parkinson's voice dataset comparing Random Forest, SVM, Gradient Boosting, and Logistic Regression across 22 acoustic features. Found nonlinear measures like PPE and RPDE more discriminative than standard jitter and shimmer features. Achieved 0.96 AUC on held-out test data.</p>
+        <div class="card-links">
+          <a href="https://github.com/tanvisanjeev/parkinsons-speech-biomarkers" class="card-link">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card health">
+        <span class="card-tag tag-health">Health and ML</span>
+        <h3>Cardiovascular Disease Risk Prediction</h3>
+        <p>Built a clinical risk prediction pipeline using patient health indicators to classify cardiovascular disease risk. Applied logistic regression, random forest, and gradient boosting with model fitting, hyperparameter tuning, and cross-validation. Evaluated using AUC-ROC, precision-recall curves, and calibration plots.</p>
+        <div class="card-links">
+          <span class="card-link plain">Python · scikit-learn · Model Fitting · Risk Prediction</span>
+        </div>
+      </div>
+
+      <div class="card data">
+        <span class="card-tag tag-data">Data and Policy</span>
+        <h3>Affordable Boston</h3>
+        <p class="card-sub">Housing Affordability and Displacement Risk Platform</p>
+        <p>Built for the Healthy Neighborhoods Study. Developed a full-stack R Shiny platform integrating 15 years of HUD, Census, LIHTC, and NHGIS data across 1,400+ census tracts. Actively used by policymakers, community advocates, and researchers to track affordability gaps and displacement risk. Reduced load time from 40+ seconds to near-instant.</p>
+        <div class="card-links">
+          <a href="https://housinglab.shinyapps.io/affordable_boston" class="card-link">Live App</a>
+        </div>
+      </div>
+
+      <div class="card ai">
+        <span class="card-tag tag-ai">AI and NLP</span>
+        <h3>Learning Signals</h3>
+        <p class="card-sub">AI-Powered Assessment Platform</p>
+        <p>Built at the CPS Learn Lab, this platform scores student transcripts against rubric frameworks using a Python FastAPI backend with LLM integration. Features deterministic prompt engineering, per-indicator rationale extraction, cohort-level AI querying, and PDF/CSV export. Still actively evolving.</p>
+        <div class="card-links">
+          <span class="card-link plain">CPS Learn Lab, Northeastern</span>
+        </div>
+      </div>
+
+      <div class="card product">
+        <span class="card-tag tag-launched">My First Product</span>
+        <h3>CareerMate AI</h3>
+        <p>Started as a structured prompt experiment in a Fundamentals of AI class. Kept building it after the semester ended and it became something I use every single day. Upload a resume and a job description and you get a match score, skill gaps, a cover letter, a cold email, and a LinkedIn message in seconds. Built it, shipped it, still improving it.</p>
+        <div class="card-links">
+          <a href="https://lnkd.in/emXDJVRx" class="card-link">Live App</a>
+        </div>
+      </div>
+
+      <div class="card multiagent">
+        <span class="card-tag tag-multiagent">Multi-Agent AI</span>
+        <h3>Flash Flood Emergency Response AI</h3>
+        <p>Built as a Northeastern University capstone under Project NANDA, this system deploys 10 specialized AI components to handle crisis scenarios end to end. Autonomously coordinates across situational assessment, resource allocation, communication routing, and action recommendation using Python and LLM architectures.</p>
+        <div class="card-links">
+          <a href="https://github.com/tanvisanjeev/flash-flood-emergency-ai" class="card-link">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card data">
+        <span class="card-tag tag-data">Dashboard and NLP</span>
+        <h3>Traxidy Project Management Dashboard</h3>
+        <p>Designed and built a dynamic project analytics dashboard for Traxidy, a Canada-based startup, using Python with Dash, Plotly, and Streamlit. Combined real-time project tracking, sentiment analysis, and an intuitive interface into a single analytics solution delivered to sponsor requirements.</p>
+        <div class="card-links">
+          <span class="card-link plain">Python · Dash · Plotly · Streamlit · Sentiment Analysis</span>
+        </div>
+      </div>
+
+      <div class="card data">
+        <span class="card-tag tag-data">Education and EDA</span>
+        <h3>Education Outcomes Analysis</h3>
+        <p>Exploratory data analysis on the National Center for Education Statistics (NCES) dataset using SQL, STATA, and R. Cleaned and queried large structured education records, ran descriptive statistics and cross-tabulations, and surfaced insights around student performance patterns, demographic trends, and institutional variables.</p>
+        <div class="card-links">
+          <span class="card-link plain">SQL · STATA · R · EDA · NCES</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-label">Teaching</div>
+      <div class="section-title">Instruction and Mentorship</div>
+    </div>
+    <div class="ta-grid">
+      <div class="ta-item">
+        <div class="exp-date">Sep 2025 – Dec 2025</div>
+        <div>
+          <div class="exp-role">Teaching Assistant, Responsible AI and Human-Centered AI</div>
+          <div class="exp-org">Northeastern University EDGE (PHIL5110 and ARTG4680)</div>
+          <div class="exp-desc">Guided 60+ graduate students through AI ethics frameworks covering algorithmic bias, fairness, privacy, and responsible deployment. Led weekly discussion sections and office hours and graded projects evaluating AI systems through ethical and human-centered design lenses.</div>
+        </div>
+      </div>
+      <div class="ta-item">
+        <div class="exp-date">Sep 2024 – Dec 2025</div>
+        <div>
+          <div class="exp-role">Python for Analytics Tutor</div>
+          <div class="exp-org">Northeastern University, College of Professional Studies</div>
+          <div class="exp-desc">Tutored working professionals and adult learners in Python fundamentals, data structures, and analytics libraries through one-on-one sessions, adapting to diverse professional backgrounds and real-world application needs.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recognition">
+    <div class="section-header">
+      <div class="section-label">Beyond the Desk</div>
+      <div class="section-title">Hackathons and Recognition</div>
+    </div>
+    <div class="hackathon-grid">
+      <div class="hack-card">
+        <div class="hack-event">MIT HackNation, VC Big Bets Track</div>
+        <h4>Nova, Zero-Click AI CRM</h4>
+        <p>Built a CRM on Google Cloud that updates itself. Emails and call transcripts get transcribed, structured, and pushed into the CRM automatically. Includes a dashboard, natural language search, and a voice interface that converts audio notes into structured records in real time.</p>
+      </div>
+      <div class="hack-card">
+        <div class="hack-event">CalHacks</div>
+        <h4>Supply Chain AI Agents</h4>
+        <p>Designed and prototyped a multi-agent AI system for automating supply chain operations, tackling real logistics challenges including shipment tracking, exception handling, and demand forecasting using LLM-powered autonomous agents.</p>
+      </div>
+    </div>
+    <div class="recognition-card">
+      <div class="recog-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="recog-text">
+        <h4>Featured in Northeastern CPS Newsletter</h4>
+        <p>Recognized by the College of Professional Studies for co-op achievement and contribution to applied analytics. <a href="https://cps.northeastern.edu/story/student-success-tanvi-kadam/" target="_blank">Read the feature</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-label">Capabilities</div>
+      <div class="section-title">Skills</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Programming and Query</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Git</span><span class="skill-tag">Jupyter</span><span class="skill-tag">STATA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Machine Learning</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">scikit-learn</span><span class="skill-tag">Classification</span><span class="skill-tag">Regression</span><span class="skill-tag">Clustering</span><span class="skill-tag">Feature Engineering</span><span class="skill-tag">Model Evaluation</span><span class="skill-tag">Cross-Validation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>AI and LLMs</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude API</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">Gemini / Vertex AI</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">RAG</span><span class="skill-tag">Multi-Agent Systems</span><span class="skill-tag">Agentic AI</span><span class="skill-tag">LangChain</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data Engineering</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Modeling</span><span class="skill-tag">Star Schema</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Validation</span><span class="skill-tag">Governance</span><span class="skill-tag">BigQuery</span><span class="skill-tag">Spark</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Visualization and BI</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">R Shiny</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Geospatial</span><span class="skill-tag">Qlik Sense</span><span class="skill-tag">Dashboard Design</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Cloud and Dev Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Google Cloud</span><span class="skill-tag">Cloud Run</span><span class="skill-tag">Docker</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Next.js</span><span class="skill-tag">Vercel</span><span class="skill-tag">REST APIs</span><span class="skill-tag">GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Analytics and Statistics</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">EDA</span><span class="skill-tag">Statistical Inference</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Trend Analysis</span><span class="skill-tag">KPI Frameworks</span><span class="skill-tag">Benchmarking</span><span class="skill-tag">Anomaly Detection</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Collaboration and Research</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">JIRA</span><span class="skill-tag">Stakeholder Communication</span><span class="skill-tag">Requirements Gathering</span><span class="skill-tag">Research Documentation</span><span class="skill-tag">Cross-Functional Teams</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-label">Background</div>
+      <div class="section-title">Education</div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="exp-date">Dec 2025</div>
+        <div>
+          <div class="exp-role">Master of Professional Studies in Analytics</div>
+          <div class="exp-org">Northeastern University, Boston MA</div>
+          <div class="exp-desc">Concentration in Applied Machine Intelligence</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="exp-date">May 2021</div>
+        <div>
+          <div class="exp-role">Bachelor of Engineering in Electronics and Telecommunications</div>
+          <div class="exp-org">University of Mumbai, India</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;padding-bottom:4rem">
+    <div class="contact-box">
+      <h3>Let's work together</h3>
+      <p>If my work resonates with what you are building, I would love to connect.</p>
+      <div class="contact-links">
+        <a href="mailto:kadam.ta@northeastern.edu" class="contact-btn">kadam.ta@northeastern.edu</a>
+        <a href="https://www.linkedin.com/in/tanvisanjeev" class="contact-btn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
