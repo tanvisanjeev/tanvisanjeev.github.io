@@ -9,56 +9,65 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --blue:#1a56db;--blue-light:#e8f0fe;--blue-mid:#3b82f6;
-  --purple:#6d28d9;--purple-light:#ede9fe;
-  --black:#0f172a;--gray-dark:#334155;--gray-mid:#64748b;--gray-light:#f1f5f9;
+  --blue:#1a56db;--blue-light:#e8f0fe;--blue-dark:#1240a8;
+  --purple:#6d28d9;--purple-light:#ede9fe;--purple-mid:#8b5cf6;
+  --black:#0f172a;--gray-dark:#334155;--gray-mid:#64748b;--gray-light:#f8fafc;
   --white:#ffffff;--border:#e2e8f0
 }
-body{font-family:system-ui,sans-serif;color:var(--black);background:var(--white);font-size:15px;line-height:1.7}
+body{font-family:system-ui,-apple-system,sans-serif;color:var(--black);background:var(--white);font-size:15px;line-height:1.7;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;justify-content:space-between;align-items:center;height:56px}
-.nav-name{font-weight:600;font-size:15px;color:var(--black)}
-.nav-links{display:flex;gap:1.75rem}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav-name{font-weight:700;font-size:16px;color:var(--black)}
+.nav-links{display:flex;gap:2rem}
 .nav-links a{font-size:13px;color:var(--gray-mid);font-weight:500;transition:color 0.15s}
 .nav-links a:hover{color:var(--blue)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 4rem}
-.hero{padding:5.5rem 0 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-light);padding:4px 12px;border-radius:20px;margin-bottom:1.25rem}
-.hero h1{font-size:48px;font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--black);margin-bottom:1rem}
-.hero h1 span{color:var(--blue)}
-.hero-sub{font-size:16px;color:var(--gray-mid);margin-bottom:2rem;line-height:1.75}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.hero-right{background:var(--gray-light);border-radius:16px;padding:2rem;border:1px solid var(--border)}
-.hero-stat{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
-.hero-stat:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.hero-stat-num{font-size:28px;font-weight:700;color:var(--blue);line-height:1}
-.hero-stat-label{font-size:13px;color:var(--gray-mid);margin-top:2px}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1.5px solid transparent}
+
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#1e3a8a 100%);padding:6rem 5% 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;min-height:92vh}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#93c5fd;background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.2);padding:5px 14px;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-size:52px;font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:var(--white);margin-bottom:0.75rem}
+.hero h1 span{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-title{font-size:18px;color:#93c5fd;font-weight:500;margin-bottom:1.25rem}
+.hero-sub{font-size:15px;color:#94a3b8;max-width:500px;margin-bottom:2.5rem;line-height:1.8}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;border:1.5px solid transparent}
 .btn-primary{background:var(--blue);color:var(--white);border-color:var(--blue)}
-.btn-primary:hover{background:#1648c0}
-.btn-outline{background:var(--white);color:var(--black);border-color:var(--border)}
-.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
-section{padding:3.5rem 0;border-top:1px solid var(--border)}
-.section-header{margin-bottom:2.25rem}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-ghost{background:rgba(255,255,255,0.08);color:var(--white);border-color:rgba(255,255,255,0.2)}
+.btn-ghost:hover{background:rgba(255,255,255,0.15)}
+.hero-right{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem}
+.hero-stat{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.hero-stat-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#60a5fa;margin-bottom:4px}
+.hero-stat-val{font-size:14px;color:#e2e8f0;line-height:1.5}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 5%}
+section{padding:5rem 0;border-top:1px solid var(--border)}
+.section-header{margin-bottom:3rem}
 .section-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
-.section-title{font-size:22px;font-weight:700;color:var(--black);letter-spacing:-0.01em}
+.section-title{font-size:32px;font-weight:800;color:var(--black);letter-spacing:-0.01em}
+
 .exp-list{display:flex;flex-direction:column}
-.exp-item{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;padding:1.75rem 0;border-bottom:1px solid var(--border)}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2rem 0;border-bottom:1px solid var(--border)}
 .exp-item:last-child{border-bottom:none}
-.exp-date{font-size:12px;color:var(--gray-mid);font-weight:500;padding-top:3px;line-height:1.5}
-.exp-role{font-size:16px;font-weight:700;color:var(--black);margin-bottom:2px}
-.exp-org{font-size:13px;color:var(--blue);font-weight:500;margin-bottom:6px}
-.exp-desc{font-size:14px;color:var(--gray-mid);line-height:1.7}
-.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:10px;transition:box-shadow 0.2s,border-color 0.2s;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.card.health::before{background:linear-gradient(90deg,var(--blue),var(--blue-mid))}
-.card.ai::before{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.exp-left{display:flex;flex-direction:column;gap:8px}
+.exp-date{font-size:12px;color:var(--gray-mid);font-weight:600;background:var(--gray-light);padding:4px 10px;border-radius:6px;display:inline-block;width:fit-content}
+.exp-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;display:inline-block;width:fit-content;margin-top:4px}
+.badge-nu{background:#e8f0fe;color:#1a56db}
+.badge-research{background:#d1fae5;color:#065f46}
+.exp-role{font-size:17px;font-weight:700;color:var(--black);margin-bottom:3px}
+.exp-org{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:8px}
+.exp-desc{font-size:14px;color:var(--gray-mid);line-height:1.75}
+
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:12px;transition:all 0.2s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.card.health::before{background:linear-gradient(90deg,#1a56db,#3b82f6)}
+.card.ai::before{background:linear-gradient(90deg,#6d28d9,#8b5cf6)}
 .card.data::before{background:linear-gradient(90deg,#0891b2,#06b6d4)}
 .card.product::before{background:linear-gradient(90deg,#059669,#34d399)}
-.card.multiagent::before{background:linear-gradient(90deg,var(--blue),var(--purple))}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);border-color:#cbd5e1}
-.card-tag{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;width:fit-content}
+.card.multiagent::before{background:linear-gradient(90deg,#1a56db,#6d28d9)}
+.card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.1);transform:translateY(-2px);border-color:#cbd5e1}
+.card-tag{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;width:fit-content}
 .tag-health{background:var(--blue-light);color:var(--blue)}
 .tag-ai{background:var(--purple-light);color:var(--purple)}
 .tag-data{background:#e0f2fe;color:#0369a1}
@@ -66,54 +75,64 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
 .tag-multiagent{background:#ede9fe;color:#5b21b6}
 .tag-launched{background:#fef9c3;color:#854d0e}
 .card h3{font-size:15px;font-weight:700;color:var(--black);line-height:1.35}
-.card-sub{font-size:12px;font-weight:600;color:var(--blue);margin-bottom:2px;margin-top:-4px}
-.card p{font-size:13px;color:var(--gray-mid);line-height:1.65;flex:1}
-.card-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.card-link{font-size:12px;font-weight:500;color:var(--blue);border:1px solid var(--blue-light);background:var(--blue-light);border-radius:6px;padding:4px 12px;transition:background 0.15s}
+.card-sub{font-size:12px;font-weight:600;color:var(--blue);margin-top:-6px}
+.card p{font-size:13px;color:var(--gray-mid);line-height:1.7;flex:1}
+.card-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.card-link{font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-light);border-radius:6px;padding:5px 14px;transition:background 0.15s}
 .card-link:hover{background:#d1e3fc}
-.card-link.plain{color:var(--gray-mid);background:var(--gray-light);border-color:var(--border)}
+.card-link.plain{color:var(--gray-mid);background:var(--gray-light)}
+
 .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-.skill-group{background:var(--gray-light);border-radius:10px;padding:1rem 1.25rem}
-.skill-group h4{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+.skill-group{background:var(--gray-light);border-radius:12px;padding:1.25rem}
+.skill-group h4{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.skill-tag{font-size:12px;font-weight:500;padding:3px 10px;border-radius:6px;background:var(--white);color:var(--gray-dark);border:1px solid var(--border)}
+.skill-tag{font-size:12px;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--white);color:var(--gray-dark);border:1px solid var(--border)}
+
 .edu-grid{display:flex;flex-direction:column}
-.edu-item{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;padding:1.25rem 0;border-bottom:1px solid var(--border)}
+.edu-item{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:1.75rem 0;border-bottom:1px solid var(--border)}
 .edu-item:last-child{border-bottom:none}
-.hackathon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:2rem}
-.hack-card{background:var(--gray-light);border-radius:12px;padding:1.25rem;border:1px solid var(--border)}
-.hack-card h4{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px}
-.hack-card .hack-event{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:8px}
-.hack-card p{font-size:13px;color:var(--gray-mid);line-height:1.6}
-.recognition-card{background:var(--blue-light);border-radius:12px;padding:1.25rem 1.5rem;border:1px solid #c7d9f8;display:flex;align-items:flex-start;gap:1rem}
-.recog-icon{width:36px;height:36px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.recog-icon svg{width:18px;height:18px;fill:var(--white)}
-.recog-text h4{font-size:14px;font-weight:700;color:var(--black);margin-bottom:2px}
-.recog-text p{font-size:13px;color:var(--gray-mid);line-height:1.55}
-.recog-text a{color:var(--blue);font-weight:500}
+
+.hackathon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:2rem}
+.hack-card{background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-radius:14px;padding:1.5rem;border:1px solid var(--border)}
+.hack-card h4{font-size:15px;font-weight:700;color:var(--black);margin-bottom:4px}
+.hack-event{font-size:12px;font-weight:700;color:var(--purple);margin-bottom:10px;display:inline-block;background:var(--purple-light);padding:3px 10px;border-radius:6px}
+.hack-card p{font-size:13px;color:var(--gray-mid);line-height:1.65}
+.recognition-card{background:linear-gradient(135deg,var(--blue-light),var(--purple-light));border-radius:14px;padding:1.5rem 2rem;display:flex;align-items:center;gap:1.5rem;border:1px solid #c7d9f8}
+.recog-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.recog-icon svg{width:22px;height:22px;fill:var(--white)}
+.recog-text h4{font-size:15px;font-weight:700;color:var(--black);margin-bottom:3px}
+.recog-text p{font-size:13px;color:var(--gray-mid)}
+.recog-text a{color:var(--blue);font-weight:600}
+
 .ta-grid{display:flex;flex-direction:column}
-.ta-item{padding:1.25rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:160px 1fr;gap:2rem}
+.ta-item{padding:1.75rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:200px 1fr;gap:3rem}
 .ta-item:last-child{border-bottom:none}
-.contact-box{border-radius:16px;padding:2.5rem;color:var(--white);text-align:center;background:linear-gradient(135deg,#7c3aed,#a78bfa)}
-.contact-box h3{font-size:22px;font-weight:700;margin-bottom:8px}
-.contact-box p{font-size:14px;opacity:0.85;margin-bottom:1.75rem;max-width:440px;margin-left:auto;margin-right:auto}
-.contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.contact-btn{background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);color:var(--white);padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;transition:background 0.15s}
-.contact-btn:hover{background:rgba(255,255,255,0.25)}
+
+.contact-box{background:linear-gradient(135deg,#0f172a,#1e1b4b,#1e3a8a);border-radius:20px;padding:4rem;color:var(--white);text-align:center}
+.contact-box h3{font-size:32px;font-weight:800;margin-bottom:12px}
+.contact-box p{font-size:15px;opacity:0.75;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-btn{background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);color:var(--white);padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;transition:background 0.15s}
+.contact-btn:hover{background:rgba(255,255,255,0.2)}
+
 @media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-  .hero-stat{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;padding:4rem 5%}
+  .hero-photo-wrap{justify-content:center}
+  .hero-photo-ring{width:260px;height:260px}
+  .hero-sub{margin:0 auto 2rem}
+  .hero-btns{justify-content:center}
+  .hero-stats{max-width:480px;margin:2rem auto 0}
   .project-grid{grid-template-columns:repeat(2,1fr)}
   .skills-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:640px){
-  .hero h1{font-size:32px}
-  .project-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  .exp-item,.edu-item,.ta-item{grid-template-columns:1fr}
-  nav{padding:0 1rem}
-  .wrap{padding:0 1.5rem}
+  .hero h1{font-size:36px}
+  .project-grid,.skills-grid,.hackathon-grid{grid-template-columns:1fr}
+  .exp-item,.edu-item,.ta-item{grid-template-columns:1fr;gap:1rem}
+  nav{padding:0 1.25rem}
+  .wrap{padding:0 1.25rem}
+  .hero{padding:3rem 1.25rem}
+  .contact-box{padding:2.5rem 1.5rem}
 }
 </style>
 
@@ -124,38 +143,46 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     <a href="#projects">Projects</a>
     <a href="#recognition">Recognition</a>
     <a href="#contact">Contact</a>
-    <div class="hero-right">
-      <div class="hero-stat">
-        <div class="hero-stat-num">5+</div>
-        <div class="hero-stat-label">Years of experience across data, QA, and AI engineering</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">8</div>
-        <div class="hero-stat-label">Projects shipped across health, policy, logistics, and AI</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">2</div>
-        <div class="hero-stat-label">Hackathons including MIT HackNation and CalHacks</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">1</div>
-        <div class="hero-stat-label">Live product built and shipped independently</div>
-      </div>
-    </div>
   </div>
 </nav>
 
-<div class="wrap">
-
-  <div class="hero">
+<div class="hero">
+  <div class="hero-text">
     <div class="hero-eyebrow">Authorized to Work for Any Employer in the USA · Seeking Full-Time Roles</div>
     <h1>Tanvi <span>Sanjeev</span> Kadam</h1>
-    <p class="hero-sub">Data Analyst · Data Scientist · AI and ML Engineer · LLM and RAG Systems · Research Analytics. MS in Analytics (Applied Machine Intelligence), Northeastern University. I build end-to-end data pipelines, machine learning models, AI-powered platforms, and multi-agent systems across research, product, and industry contexts.</p>
+    <div class="hero-title">Data Analyst · Data Scientist · AI and ML Engineer</div>
+    <p class="hero-sub">MS in Analytics (Applied Machine Intelligence), Northeastern University. I build end-to-end data pipelines, machine learning models, AI-powered platforms, and multi-agent systems across research, product, and industry contexts.</p>
     <div class="hero-btns">
       <a href="https://www.linkedin.com/in/tanvisanjeev" class="btn btn-primary">LinkedIn</a>
-      <a href="mailto:kadam.ta@northeastern.edu" class="btn btn-outline">Email</a>
+      <a href="mailto:kadam.ta@northeastern.edu" class="btn btn-ghost">Email Me</a>
+      <a href="#projects" class="btn btn-ghost">View Work</a>
     </div>
   </div>
+  <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hero-stat-label">Currently</div>
+        <div class="hero-stat-val">AI Engineer at CPS Learn Lab, Northeastern University</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Education</div>
+        <div class="hero-stat-val">MS Analytics, Applied Machine Intelligence — Northeastern University</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Based in</div>
+        <div class="hero-stat-val">United States — Authorized to work for any employer</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Looking for</div>
+        <div class="hero-stat-val">Full-time roles in Data Science, ML Engineering, or AI Research</div>
+      </div>
+      <div class="hero-stat" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
+        <div class="hero-stat-label">Interests</div>
+        <div class="hero-stat-val">Data Analysis · Data Science · AI and ML · LLM Systems · Multi-Agent AI · Research</div>
+      </div>
+    </div>
+  </div>
+
+<div class="wrap">
 
   <section id="experience">
     <div class="section-header">
@@ -164,59 +191,77 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     </div>
     <div class="exp-list">
       <div class="exp-item">
-        <div class="exp-date">Mar 2026 – Present</div>
+        <div class="exp-left">
+          <div class="exp-date">Mar 2026 – Present</div>
+          <span class="exp-badge badge-research">Research</span>
+        </div>
         <div>
           <div class="exp-role">AI Engineer</div>
           <div class="exp-org">CPS Learn Lab, Northeastern University</div>
-          <div class="exp-desc">Building Learning Signals, an LLM-powered platform that automates transcript scoring and evaluation at scale, with a modular NLP pipeline, AI querying layer, and research export workflows.</div>
+          <div class="exp-desc">Building Learning Signals, an AI-powered assessment platform that scores student transcripts against rubric frameworks using a Python FastAPI backend with Claude API integration. Designed the NLP evaluation pipeline, prompt engineering logic, and AI querying layer, alongside PDF and CSV export workflows for institutional research use.</div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Oct 2025 – Present</div>
+        <div class="exp-left">
+          <div class="exp-date">Oct 2025 – Present</div>
+          <span class="exp-badge badge-research">Research</span>
+        </div>
         <div>
-          <div class="exp-role">Data Analyst and Research Assistant</div>
-          <div class="exp-org">Northeastern University Housing Lab (Healthy Neighborhoods Study)</div>
-          <div class="exp-desc">Built the Affordable Boston platform for a community health and housing policy research organization. Integrated 8 heterogeneous data sources into a production R Shiny application with geospatial analytics, multilingual support, and smart search. Actively used by municipal teams and researchers to support evidence-based policy decisions.</div>
+          <div class="exp-role">Data Analyst</div>
+          <div class="exp-org">Northeastern University Housing Lab</div>
+          <div class="exp-desc">Built the Affordable Boston platform for the Healthy Neighborhoods Study. Integrated 8 heterogeneous data sources into a production R Shiny application with geospatial analytics, multilingual support, and smart search. Actively used by municipal teams and researchers to support evidence-based policy decisions.</div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Sep 2025 – Dec 2025</div>
+        <div class="exp-left">
+          <div class="exp-date">Sep 2025 – Dec 2025</div>
+          <span class="exp-badge badge-nu">Capstone</span>
+        </div>
         <div>
           <div class="exp-role">AI Engineer, Capstone</div>
           <div class="exp-org">Project NANDA, Northeastern University</div>
-          <div class="exp-desc">Developed a multi-agent AI system for crisis response with 10 specialized agents handling situational assessment, resource allocation, and emergency decision support using Python and LLM architectures.</div>
+          <div class="exp-desc">Developed a multi-agent AI system for crisis response with 10 specialized components handling situational assessment, resource allocation, and emergency decision support using Python and LLM architectures.</div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Sep 2024 – Dec 2024</div>
+        <div class="exp-left">
+          <div class="exp-date">Sep 2024 – Dec 2024</div>
+          <span class="exp-badge badge-nu">XN Project</span>
+        </div>
         <div>
           <div class="exp-role">Data Analyst</div>
           <div class="exp-org">Traxidy, Canada (Remote)</div>
-          <div class="exp-desc">Designed and developed an interactive project management dashboard for a Canadian startup using Python, Dash, Plotly, and Streamlit, combining data visualization and sentiment analysis into a sponsor-ready analytics solution.</div>
+          <div class="exp-desc">Designed and developed an interactive project management dashboard using Python, Dash, Plotly, and Streamlit, combining data visualization and sentiment analysis into a sponsor-ready analytics solution.</div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Jan 2025 – Jul 2025</div>
+        <div class="exp-left">
+          <div class="exp-date">Jan 2025 – Jul 2025</div>
+        </div>
         <div>
           <div class="exp-role">Data Analyst (Co-op)</div>
           <div class="exp-org">ImEx Cargo LLC, Peabody MA</div>
-          <div class="exp-desc">Analyzed supply chain and logistics data to optimize freight operations across US and Italy routes. Built automated Power BI dashboards tracking shipment status, delivery times, and route efficiency. Used Python and SQL to identify cost-saving opportunities and operational bottlenecks, collaborating with domestic and airfreight managers to implement data-driven inventory strategies.</div>
+          <div class="exp-desc">Analyzed shipment and logistics data across US and Italy freight routes using Python (pandas) for data cleaning, pipeline automation, and multi-source dataset integration. Built Power BI semantic models and executive dashboards tracking shipment KPIs, route efficiency, and cost variance. Wrote SQL queries to identify operational bottlenecks and collaborated with freight managers to implement data-driven routing and inventory strategies.</div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">May 2022 – Sep 2023</div>
+        <div class="exp-left">
+          <div class="exp-date">May 2022 – Sep 2023</div>
+        </div>
         <div>
           <div class="exp-role">Data Quality Analyst</div>
           <div class="exp-org">Petition.ai LLC, Chicago IL</div>
-          <div class="exp-desc">Performed database testing and validation in a regulated environment using Python querying and SQL across 50K+ operational records. Conducted systematic audits, root-cause analysis, and anomaly detection, resolving 200+ data inconsistencies and building governance frameworks to ensure audit readiness.</div>
+          <div class="exp-desc">Worked on data quality and analytics for a legal tech platform serving 80+ law firms including Am Law 100 firms, built on a corpus of 2.1M+ USPTO patent petition documents. Extracted and analyzed petition and final agency decision datasets using Python to ensure data integrity for search, analytics, and case tracking workflows. Identified and resolved data discrepancies across patent application records, improving reliability of approval rate analytics, petition type filtering, and turnaround time insights used daily by patent attorneys and in-house legal teams.</div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">Jan 2022 – May 2022</div>
+        <div class="exp-left">
+          <div class="exp-date">Jan 2022 – May 2022</div>
+        </div>
         <div>
           <div class="exp-role">Quality Assurance Engineer</div>
           <div class="exp-org">Tech Mahindra, Mumbai</div>
-          <div class="exp-desc">Worked across the full SDLC lifecycle performing manual and automation testing on enterprise backend systems. Wrote SQL queries to validate 10,000+ database records, performed regression and integration testing, and tracked 150+ defects through to resolution across cross-functional teams.</div>
+          <div class="exp-desc">Performed data quality analysis and software testing for enterprise applications, developing and executing test plans using SQL and TFS to ensure data integrity and system reliability. Logged and tracked test cases and defects, collaborating with development teams to resolve critical issues and enhance system stability through the Waterfall methodology. Generated daily reports on test coverage, defects, and data quality metrics for stakeholder visibility.</div>
         </div>
       </div>
     </div>
@@ -228,81 +273,56 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
       <div class="section-title">Projects</div>
     </div>
     <div class="project-grid">
-
       <div class="card health">
         <span class="card-tag tag-health">Health and ML</span>
         <h3>Parkinson's Speech Biomarker Classification</h3>
-        <p>Built a classification pipeline on the UCI Parkinson's voice dataset comparing Random Forest, SVM, Gradient Boosting, and Logistic Regression across 22 acoustic features. Found nonlinear measures like PPE and RPDE more discriminative than standard jitter and shimmer features. Achieved 0.96 AUC on held-out test data.</p>
-        <div class="card-links">
-          <a href="https://github.com/tanvisanjeev/parkinsons-speech-biomarkers" class="card-link">GitHub</a>
-        </div>
+        <p>Built a classification pipeline on the UCI Parkinson's voice dataset comparing Random Forest, SVM, Gradient Boosting, and Logistic Regression across 22 acoustic features. Found nonlinear measures like PPE and RPDE more discriminative than standard jitter and shimmer. Achieved 0.96 AUC.</p>
+        <div class="card-links"><a href="https://github.com/tanvisanjeev/parkinsons-speech-biomarkers" class="card-link">GitHub</a></div>
       </div>
-
       <div class="card health">
         <span class="card-tag tag-health">Health and ML</span>
         <h3>Cardiovascular Disease Risk Prediction</h3>
-        <p>Built a clinical risk prediction pipeline using patient health indicators to classify cardiovascular disease risk. Applied logistic regression, random forest, and gradient boosting with model fitting, hyperparameter tuning, and cross-validation. Evaluated using AUC-ROC, precision-recall curves, and calibration plots.</p>
-        <div class="card-links">
-          <span class="card-link plain">Python · scikit-learn · Model Fitting · Risk Prediction</span>
-        </div>
+        <p>Built a clinical risk prediction pipeline using patient health indicators to classify cardiovascular disease risk. Applied logistic regression, random forest, and gradient boosting with model fitting, hyperparameter tuning, and cross-validation. Evaluated using AUC-ROC and calibration plots.</p>
+        <div class="card-links"><span class="card-link plain">Python · scikit-learn · Risk Prediction</span></div>
       </div>
-
       <div class="card data">
         <span class="card-tag tag-data">Data and Policy</span>
         <h3>Affordable Boston</h3>
-        <p class="card-sub">Housing Affordability and Displacement Risk Platform</p>
-        <p>Built for the Healthy Neighborhoods Study. Developed a full-stack R Shiny platform integrating 15 years of HUD, Census, LIHTC, and NHGIS data across 1,400+ census tracts. Actively used by policymakers, community advocates, and researchers to track affordability gaps and displacement risk. Reduced load time from 40+ seconds to near-instant.</p>
-        <div class="card-links">
-          <a href="https://housinglab.shinyapps.io/affordable_boston" class="card-link">Live App</a>
-        </div>
+        <div class="card-sub">Housing Affordability and Displacement Risk Platform</div>
+        <p>Built for the Healthy Neighborhoods Study. Full-stack R Shiny platform integrating 15 years of HUD, Census, LIHTC, and NHGIS data across 1,400+ census tracts. Actively used by policymakers and researchers. Reduced load time from 40+ seconds to near-instant.</p>
+        <div class="card-links"><a href="https://housinglab.shinyapps.io/affordable_boston" class="card-link">Live App</a></div>
       </div>
-
       <div class="card ai">
         <span class="card-tag tag-ai">AI and NLP</span>
         <h3>Learning Signals</h3>
-        <p class="card-sub">AI-Powered Assessment Platform</p>
-        <p>Built at the CPS Learn Lab, this platform scores student transcripts against rubric frameworks using a Python FastAPI backend with LLM integration. Features deterministic prompt engineering, per-indicator rationale extraction, cohort-level AI querying, and PDF/CSV export. Still actively evolving.</p>
-        <div class="card-links">
-          <span class="card-link plain">CPS Learn Lab, Northeastern</span>
-        </div>
+        <div class="card-sub">AI-Powered Assessment Platform</div>
+        <p>Built at the CPS Learn Lab. Scores student transcripts against rubric frameworks using a Python FastAPI backend with LLM integration. Features deterministic prompt engineering, per-indicator rationale extraction, cohort-level AI querying, and PDF/CSV export.</p>
+        <div class="card-links"><span class="card-link plain">CPS Learn Lab, Northeastern</span></div>
       </div>
-
       <div class="card product">
         <span class="card-tag tag-launched">My First Product</span>
         <h3>CareerMate AI</h3>
-        <p>Started as a structured prompt experiment in a Fundamentals of AI class. Kept building it after the semester ended and it became something I use every single day. Upload a resume and a job description and you get a match score, skill gaps, a cover letter, a cold email, and a LinkedIn message in seconds. Built it, shipped it, still improving it.</p>
-        <div class="card-links">
-          <a href="https://lnkd.in/emXDJVRx" class="card-link">Live App</a>
-        </div>
+        <p>Started as a class prompt experiment. Kept building it and now use it every day. Upload a resume and job description to get a match score, skill gaps, cover letter, cold email, and LinkedIn message in seconds. Built with Next.js and Claude AI. Free and open source.</p>
+        <div class="card-links"><a href="https://lnkd.in/emXDJVRx" class="card-link">Live App</a></div>
       </div>
-
       <div class="card multiagent">
         <span class="card-tag tag-multiagent">Multi-Agent AI</span>
         <h3>Flash Flood Emergency Response AI</h3>
-        <p>Built as a Northeastern University capstone under Project NANDA, this system deploys 10 specialized AI components to handle crisis scenarios end to end. Autonomously coordinates across situational assessment, resource allocation, communication routing, and action recommendation using Python and LLM architectures.</p>
-        <div class="card-links">
-          <a href="https://github.com/tanvisanjeev/flash-flood-emergency-ai" class="card-link">GitHub</a>
-        </div>
+        <p>Northeastern University capstone under Project NANDA. Deploys 10 specialized AI components to handle crisis scenarios end to end — situational assessment, resource allocation, communication routing, and action recommendation using Python and LLM architectures.</p>
+        <div class="card-links"><a href="https://github.com/tanvisanjeev/flash-flood-emergency-ai" class="card-link">GitHub</a></div>
       </div>
-
       <div class="card data">
         <span class="card-tag tag-data">Dashboard and NLP</span>
         <h3>Traxidy Project Management Dashboard</h3>
-        <p>Designed and built a dynamic project analytics dashboard for Traxidy, a Canada-based startup, using Python with Dash, Plotly, and Streamlit. Combined real-time project tracking, sentiment analysis, and an intuitive interface into a single analytics solution delivered to sponsor requirements.</p>
-        <div class="card-links">
-          <span class="card-link plain">Python · Dash · Plotly · Streamlit · Sentiment Analysis</span>
-        </div>
+        <p>Dynamic project analytics dashboard for a Canada-based startup using Python with Dash, Plotly, and Streamlit. Combined real-time project tracking, sentiment analysis, and an intuitive interface into a single analytics solution delivered to sponsor requirements.</p>
+        <div class="card-links"><span class="card-link plain">Python · Dash · Plotly · Streamlit</span></div>
       </div>
-
       <div class="card data">
         <span class="card-tag tag-data">Education and EDA</span>
         <h3>Education Outcomes Analysis</h3>
-        <p>Exploratory data analysis on the National Center for Education Statistics (NCES) dataset using SQL, STATA, and R. Cleaned and queried large structured education records, ran descriptive statistics and cross-tabulations, and surfaced insights around student performance patterns, demographic trends, and institutional variables.</p>
-        <div class="card-links">
-          <span class="card-link plain">SQL · STATA · R · EDA · NCES</span>
-        </div>
+        <p>Exploratory data analysis on the National Center for Education Statistics (NCES) dataset using SQL, STATA, and R. Cleaned and queried large structured education records and surfaced insights around student performance patterns, demographic trends, and institutional variables.</p>
+        <div class="card-links"><span class="card-link plain">SQL · STATA · R · EDA · NCES</span></div>
       </div>
-
     </div>
   </section>
 
@@ -313,15 +333,21 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     </div>
     <div class="ta-grid">
       <div class="ta-item">
-        <div class="exp-date">Sep 2025 – Dec 2025</div>
+        <div class="exp-left">
+          <div class="exp-date">Sep 2025 – Dec 2025</div>
+          <span class="exp-badge badge-nu">Northeastern</span>
+        </div>
         <div>
           <div class="exp-role">Teaching Assistant, Responsible AI and Human-Centered AI</div>
           <div class="exp-org">Northeastern University EDGE (PHIL5110 and ARTG4680)</div>
-          <div class="exp-desc">Guided 60+ graduate students through AI ethics frameworks covering algorithmic bias, fairness, privacy, and responsible deployment. Led weekly discussion sections and office hours and graded projects evaluating AI systems through ethical and human-centered design lenses.</div>
+          <div class="exp-desc">Guided 60+ graduate students through AI ethics frameworks covering algorithmic bias, fairness, privacy, and responsible deployment. Led weekly discussion sections and graded projects evaluating AI systems through ethical and human-centered design lenses.</div>
         </div>
       </div>
       <div class="ta-item">
-        <div class="exp-date">Sep 2024 – Dec 2025</div>
+        <div class="exp-left">
+          <div class="exp-date">Sep 2024 – Dec 2025</div>
+          <span class="exp-badge badge-nu">Northeastern</span>
+        </div>
         <div>
           <div class="exp-role">Python for Analytics Tutor</div>
           <div class="exp-org">Northeastern University, College of Professional Studies</div>
@@ -338,7 +364,7 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     </div>
     <div class="hackathon-grid">
       <div class="hack-card">
-        <div class="hack-event">MIT HackNation, VC Big Bets Track</div>
+        <div class="hack-event">MIT HackNation · VC Big Bets Track</div>
         <h4>Nova, Zero-Click AI CRM</h4>
         <p>Built a CRM on Google Cloud that updates itself. Emails and call transcripts get transcribed, structured, and pushed into the CRM automatically. Includes a dashboard, natural language search, and a voice interface that converts audio notes into structured records in real time.</p>
       </div>
@@ -367,51 +393,35 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     <div class="skills-grid">
       <div class="skill-group">
         <h4>Programming and Query</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Git</span><span class="skill-tag">Jupyter</span><span class="skill-tag">STATA</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Git</span><span class="skill-tag">Jupyter</span><span class="skill-tag">STATA</span></div>
       </div>
       <div class="skill-group">
         <h4>Machine Learning</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">scikit-learn</span><span class="skill-tag">Classification</span><span class="skill-tag">Regression</span><span class="skill-tag">Clustering</span><span class="skill-tag">Feature Engineering</span><span class="skill-tag">Model Evaluation</span><span class="skill-tag">Cross-Validation</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">scikit-learn</span><span class="skill-tag">Classification</span><span class="skill-tag">Regression</span><span class="skill-tag">Clustering</span><span class="skill-tag">Feature Engineering</span><span class="skill-tag">Cross-Validation</span></div>
       </div>
       <div class="skill-group">
         <h4>AI and LLMs</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Claude API</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">Gemini / Vertex AI</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">RAG</span><span class="skill-tag">Multi-Agent Systems</span><span class="skill-tag">Agentic AI</span><span class="skill-tag">LangChain</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">Claude API</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">Gemini / Vertex AI</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">RAG</span><span class="skill-tag">Multi-Agent Systems</span><span class="skill-tag">LangChain</span></div>
       </div>
       <div class="skill-group">
         <h4>Data Engineering</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Modeling</span><span class="skill-tag">Star Schema</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Validation</span><span class="skill-tag">Governance</span><span class="skill-tag">BigQuery</span><span class="skill-tag">Spark</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Modeling</span><span class="skill-tag">Star Schema</span><span class="skill-tag">Validation</span><span class="skill-tag">Governance</span><span class="skill-tag">BigQuery</span><span class="skill-tag">Spark</span></div>
       </div>
       <div class="skill-group">
         <h4>Visualization and BI</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">R Shiny</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Geospatial</span><span class="skill-tag">Qlik Sense</span><span class="skill-tag">Dashboard Design</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">R Shiny</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Geospatial</span><span class="skill-tag">Qlik Sense</span></div>
       </div>
       <div class="skill-group">
         <h4>Cloud and Dev Tools</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Google Cloud</span><span class="skill-tag">Cloud Run</span><span class="skill-tag">Docker</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Next.js</span><span class="skill-tag">Vercel</span><span class="skill-tag">REST APIs</span><span class="skill-tag">GitHub</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">Google Cloud</span><span class="skill-tag">Docker</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Next.js</span><span class="skill-tag">Vercel</span><span class="skill-tag">REST APIs</span><span class="skill-tag">GitHub</span></div>
       </div>
       <div class="skill-group">
         <h4>Analytics and Statistics</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">EDA</span><span class="skill-tag">Statistical Inference</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Trend Analysis</span><span class="skill-tag">KPI Frameworks</span><span class="skill-tag">Benchmarking</span><span class="skill-tag">Anomaly Detection</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">EDA</span><span class="skill-tag">Statistical Inference</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Trend Analysis</span><span class="skill-tag">KPI Frameworks</span><span class="skill-tag">Anomaly Detection</span></div>
       </div>
       <div class="skill-group">
         <h4>Collaboration and Research</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">JIRA</span><span class="skill-tag">Stakeholder Communication</span><span class="skill-tag">Requirements Gathering</span><span class="skill-tag">Research Documentation</span><span class="skill-tag">Cross-Functional Teams</span>
-        </div>
+        <div class="skill-tags"><span class="skill-tag">JIRA</span><span class="skill-tag">Stakeholder Communication</span><span class="skill-tag">Requirements Gathering</span><span class="skill-tag">Research Documentation</span></div>
       </div>
     </div>
   </section>
@@ -423,7 +433,10 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     </div>
     <div class="edu-grid">
       <div class="edu-item">
-        <div class="exp-date">Dec 2025</div>
+        <div class="exp-left">
+          <div class="exp-date">Dec 2025</div>
+          <span class="exp-badge badge-nu">Northeastern</span>
+        </div>
         <div>
           <div class="exp-role">Master of Professional Studies in Analytics</div>
           <div class="exp-org">Northeastern University, Boston MA</div>
@@ -431,7 +444,9 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
         </div>
       </div>
       <div class="edu-item">
-        <div class="exp-date">May 2021</div>
+        <div class="exp-left">
+          <div class="exp-date">May 2021</div>
+        </div>
         <div>
           <div class="exp-role">Bachelor of Engineering in Electronics and Telecommunications</div>
           <div class="exp-org">University of Mumbai, India</div>
@@ -440,9 +455,9 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
     </div>
   </section>
 
-  <section id="contact" style="border-bottom:none;padding-bottom:4rem">
+  <section id="contact" style="border-bottom:none;padding-bottom:5rem">
     <div class="contact-box">
-      <h3>Let's work together</h3>
+      <h3>From Software QA Engineer to Data Analyst to AI Engineer — if my journey resonates with what you are building, let's connect.</h3>
       <p>If my work resonates with what you are building, I would love to connect.</p>
       <div class="contact-links">
         <a href="mailto:kadam.ta@northeastern.edu" class="contact-btn">kadam.ta@northeastern.edu</a>
@@ -450,6 +465,7 @@ section{padding:3.5rem 0;border-top:1px solid var(--border)}
       </div>
     </div>
   </section>
+
 </div>
 </body>
 </html>
